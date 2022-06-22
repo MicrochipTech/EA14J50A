@@ -1,0 +1,378 @@
+# Microchip SAM-BA - SAM Boot Assistant
+
+## Version 3.7
+
+### Bugfixes
+
+- Fix ciphered internalflash applet for PIC32CXMT devices
+- Fix CHIPID value and mask to correctly indentify supported PIC32CXMT devices for
+  j-link connection
+- Fix Nandflash header for SAMA5D2 PTC board
+
+### Enhancements
+ - Add support for SAMA5D29 devices
+ - Add support for SAM9X7x devices
+
+## Version 3.6
+
+### Enhancements
+- Add support for PIC32CXMT devices
+- Updated the copyright date in html document.
+
+### Bugfixes
+
+- Fixed the SDMMC configuration value for SAMA7G5.
+
+## Version 3.5
+
+### Bugfixes
+
+- Fixed a crash in the 'nandflash' applet that always occured at initialization
+  on all SAMA5D* devices.
+
+### Enhancements
+
+- Supported latest SAMA5D2x and SAMA5D3x with new ROM code versions.
+
+### API Changes
+
+- Set API version to 3.5.
+
+
+
+## Version 3.4
+
+### Bugfixes
+
+- Enabled card-detect by default for SDMMC* boot entries on SAMA7G5 and
+  created new keywords with a "_NO_CARD_DETECT" suffix to explicitely
+  disable the card-dectect verification in the ROM code.
+
+### Enhancements
+
+- Added PIC32CXMT support
+
+### API Changes
+
+- Renamed SAMA7G5EB (Engineering Board) into SAMA7G5EK (Evaluation Kit).
+- Updated the command set of the 'internalflash' applet to fit SEFCx of
+  PIC32CXMT devices.
+- Removed SAMV71 support
+
+
+
+## Version 3.4-beta1
+
+### Bugfixes
+
+- Added missing "return" in SambaConnectionJlinkHelper::open().
+- Fixed watchdog disabling on SAM9X60 with the j-link connection.
+- Fixed translation from error codes to strings in the 'secure' connections:
+  error codes can now be different from one device to the other.
+- Fixed PMECC header for the NAND flash on SAMA5D2-PTC-EK.
+- Fixed a long overflow on Windows 32bits when parsing the command status value
+  returned by the secure SAM-BA monitor.
+- Fixed incorrect size when probing e.MMC greater than 4GB.
+
+### Enhancements
+
+- Added SAMA7G5 support
+- Added 'version' monitor command to the 'serial' and 'j-link' connections.
+- Changed the output format of the 'version' monitor command for the 'secure'
+  connection to match the output format of the 'serial' and 'j-link'
+  connections.
+- Added the paths of the script parent directory and of the working directory
+  during the script execution to the QML import paths when a script is executed.
+
+### API Changes
+
+- Set API version to 3.4.
+- Added an optional parameter to the 'lowlevel' applet on SAMA7G5 to skip the
+  detection of the external crystal but to force its frequency.
+- Created BootConfigOTPCApplet as a common base to SAM9X60BootConfigApplet and
+  SAMA7G5BootConfigApplet to share source code.
+- Created BootConfigOTPCApplet::invalidateBootCfg()
+- Created BootConfigOTPCApplet::lockBootCfg()
+- Created BootConfigOTPCApplet::refreshBootCfg()
+- Created BootConfigOTPCApplet::resetEmulSRAM()
+- Created SDMMCApplet::enableBootPartition()
+- Created Connection::getDeviceVersion()
+
+
+
+## Version 3.3.1
+
+#### Bugfixes
+
+- Added a work-around in 'secure' port to deal with missing USB Zero Length
+  Packets in the USB device stack of SAMA5 ROM codes.
+- Fixed the decoding of the Boot Configuration word on SAMA5D2 devices when
+  when the 'SIGN_MODE_RSA' bit is set. This bug affected the 'readcfg' and
+  'writecfg' commands of the 'bootconfig' applet.
+- Fixed typos in the HTML documentation.
+
+#### Enhancements
+
+- Added a new multi_sam-ba.py script to spawn many instances of sam-ba in order
+  to program as many target devices in parallel through USB connections.
+  Known limitation: not yet compatible with the '-x' option that executes a QML
+  script.
+- Added a new 'pairingmode' applet for SAMA5D2 and SAM9X60 devices:
+  this 'pairingmode' applet translates a boostrap 'master' image file, ciphered
+  and signed  with secure-sam-ba-cipher.py, into a bootstrap 'paired' image
+  file, still ciphered and signed but now using a secret key that is unique to
+  each device.
+- Added a new '-w' command line option to change the current working directory
+  before executing the QML script provided to the '-x' option.
+- Added Getting Started HTML pages for SAMA5D3 and SAMA5D4 devices.
+- Documented the secure boot mode on SAMA5D3 on SAMA5D4 devices.
+- Added a "TIMEOUT" debug message in the SecureConnection port.
+- Limited verbosity of debug messages in the SecureConnection port when the
+  trace level is set to 2. The new level 3 now displays debug messages as the
+  former level 2 did.
+- Updated presets in the HTML page documenting the 'extram' applet.
+
+#### API Changes
+
+- Added a new board file for SAMA5D27-WLSOM1-EK boards: '-b sama5d27-wlsom1-ek'
+  option.
+- Added a new board file for SAMA5D2-ICP boards: '-b sama5d2-icp' option.
+  The Winbond W632GU6MB DDR3 chip is not supported yet by the 'extram' applet.
+
+
+
+## Version 3.3
+
+#### Bugfixes
+
+#### Enhancements
+
+- Rebuilt all applets from softpack v2.17.
+- Kept on improving the HTML and command line documentation.
+- Added Getting Started HTML pages for SAMA5D2 and SAM9X60 devices.
+- Documented the secure boot mode on SAMA5D2 and SAM9X60 devices.
+- Added a new 'ReadUniqueId' applet to read the device unique ID.
+
+#### API Changes
+
+- No changes were made to the QML API
+
+
+
+## Version 3.3-beta2
+
+#### Bugfixes
+
+- Fixed the 'writeboot' command when using the 'secure' port
+
+#### Enhancements
+
+- Updated all applets on SAM9X60 so they are linked to be run in internal SRAM0
+  instead of external RAM (ROM code v1.1 and later).
+- Modified command line parser to require either -d or -b option with -a and -m
+  options to allow different help messages to be displayed depending on the
+  device familly.
+- Extended 'secure' port with device specific monitor commands for SAMA5D2 and
+  SAM9X60.
+
+#### API Changes
+
+- Merged the SecureBootConfigApplet into the BootConfigApplet
+
+
+
+## Version 3.3-beta1
+
+#### Bugfixes
+
+- Fixed dist/dist.pro to use $[QT_INSTALL_QML]
+
+#### Enhancements
+
+- Added support to sam9x60 device
+- Made 'jlink' sub-project optional
+- Made 'doc' sub-project optional
+- Rework HTML documents
+
+#### API Changes
+
+- No changes were made to the QML API
+- Added the new SecureConnection class to handle connections to the secure
+  SAM-BA monitor
+
+
+
+## Version 3.2.3
+
+### Bugfixes
+
+- Fixed 'extram' applet so the 'preset' parameter can be set from the command
+  line.
+- Added missing JLinkARM.dll file in win32 archive.
+
+### API Changes
+
+- No changes were made to the QML API
+
+
+
+## Version 3.2.2
+
+### Bugfixes
+
+- Fixed applets not working on board designs without external MAIN crystal.
+- Fixed J-LINK selection by serial number.
+- Fixed J-LINK connections on SAM9XX5.
+- Fixed *sleep() issue on SAMA5D31 where applets tried using the non-existing
+  TC1.
+- Added new 'internalrc' applet on SAMA5D2 to force the use of the 12MHz
+  internal RC instead of the external MAIN crystal (Needed before programming
+  fuses on SAMA5D27 SOM).
+- Added new 'enablebootpartition' command to 'sdmmc' applet to enable/disable
+  eMMC boot partitions.
+
+### Enhancements
+
+- All applets rebuilt using softpack 2.13 + few additional patches. This brings
+  support for more SPI/QSPI NOR memories.
+- Allow to change the speed of J-Link connections.
+- Added new 'reset' applet.
+- Added new 'enablebootpartition' command to 'sdmmc' applet.
+- Added new 'tag' and 'untag' commands to 'nandflash' applet to set/clear bad
+  block marks.
+
+### API Changes
+
+- SAM-BA now requires J-LINK SDK V6* to build.
+- Extracted the source code for X-Modem support from the serial connection
+  plugin to a dedicated shared library.
+- Reworked the interface and methods of the Connection class to better abstract
+  the sequence of operations executed by the Connection::appletExecute() method.
+
+
+
+## Version 3.2.1
+
+### Bugfixes
+
+- Fixed NAND header value for SAM9xx5EK.
+- Fixed parsing of numeric arguments to writecfg commands to BootConfig applet.
+- Fixed SAMA5D2 fuse boot configuration example to disable BSCR/BUREG
+
+### Enhancements
+
+- All applets rebuilt using softpack 2.10.  This brings support for non-ONFI
+  NAND memories and more SPI/QSPI NOR memories using SFDP.
+- Applet trace level can be set from command-line (-t, --trace) or QML
+  (Script.traceLevel).
+- New Fuse example for SAMA5D2
+
+### API Changes
+
+- Applet trace level is now in the Script singleton object.
+- Internal shared library sambacommand was removed
+
+
+
+## Version 3.2.0
+
+### Bugfixes
+
+- Fixed bug when loading applets on Windows when SAM-BA path contains spaces
+- Fixed bug with USB on Windows 10
+
+### Enhancements
+
+- Provide applets for initializing external RAM on all devices.
+- All applets rebuilded using latest code from softpack.
+- Build with Qt 5.9.0
+- Implemented XMODEM support (allows programming using SAM-BA Monitor protocol
+  over UART)
+- Added support for SD/MMC and e.MMC for SAM9xx5, SAMA5D3 and SAMA5D4
+- Board-specific configurations are now in separate QML files, one per board.
+- Serial peripheral and pin used for applet traces is now configurable via the
+  board configuration and as arguments to the device/board command line
+  parameter.
+- SAMV71 device family support was completely reworked. It now uses 3.x applets
+  from the software package like the other devices.
+- J-Link driver now supports SAMV71 device family (E70/S70/V70/V71)
+- Added support for new boards sama5d27-som1-ek and sama5d2-ptc-ek.
+
+### API Changes
+
+- SAM-BA now requires Qt 5.9 to build
+- SAM-BA QML API modules version is now 3.2
+- Some common QML code is shared between similar applets for different devices
+- Applet configuration parameters in the device object are now split by applet
+  (config.serialflash, config.sdmmc, etc.)
+- Board selection is not done using a 'board' property on the device anymore.
+  Instead, the boards are defined using inheritance: for example, the
+  SAMA5D2Xplained QML object inherits from SAMA5D2 QML object.
+- Removed AppletLoader object. Connection object can now be used directly when
+  working with applets.
+
+
+
+## Version 3.1.4
+
+### Enhancements
+
+- Support for SAM9xx5 (NAND Flash and SPI Flash)
+- Add command-line support for 'read', 'write' and 'execute' monitor commands
+- Add command-line support for 'fullerase' (SAMV7)
+- NAND: retrieve and display NAND header value from applet
+- Increase default timeouts, this should fix issues on NAND & SDMMC on SAMA5D4 and SAMA5D2
+
+### Bugfixes
+
+- Fix parsing of addresses bigger than 0x7fffffff on the command-line
+
+### API Changes
+
+- No changes were made to the QML API
+
+
+
+## Version 3.1.3
+
+### Enhancements
+
+- Support for SAMA5D3 (NAND Flash and SPI Flash)
+- Port command-line option is now optional. When not supplied, the connection
+  will default to serial/usb.
+
+### API Changes
+
+- No changes were made to the QML API
+
+
+
+## Version 3.1.2
+
+### Enhancements
+
+- Support for SAMA5D4 (NAND Flash and SPI Flash)
+
+### API Changes
+
+- No changes were made to the QML API
+
+
+
+## Version 3.1.1
+
+### Enhancements
+
+- NAND Flash support for the SAMA5D2
+- SD/MMC support for the SAMA5D2
+- Enhanced command line support (see doc/cmdline.html for documentation)
+
+### API Changes
+
+Several small changes where made to the QML API, please see the provided examples.
+Notable changes:
+- SAM-BA QML API modules version is 3.1
+- configuration declaration for SAMA5D2 is less verbose. Default for the
+  SAMA5D2 device is to be unconfigured, but the "sama5d2-xplained" board
+  property can be set to get the same configuration as previous version.
+- boot configuration on the SAMA5D2 now uses an applet and a different syntax.
