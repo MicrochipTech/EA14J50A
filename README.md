@@ -16,7 +16,7 @@ The SAM9X75 is well-suited for industrial and medical applications with or w/o g
 * Documentation
   * [SAM9X7 Series Data Sheet](https://ww1.microchip.com/downloads/aemDocuments/documents/MPU32/ProductDocuments/DataSheets/SAM9X7-Series-DS60001813.pdf)
   * [SAM9X7 Series Silicon Errata and Data Sheet Clarifications](https://ww1.microchip.com/downloads/aemDocuments/documents/MPU32/ProductDocuments/Errata/SAM9X7-Series-Silicon-Errata-and-Data-Sheet-Clarifications-DS80001082.pdf)
-  * [Booting from External Non-Volatile Memory (NVM) on SAM9X7 MPUs]([Documentation/](https://ww1.microchip.com/downloads/aemDocuments/documents/MPU32/ApplicationNotes/ApplicationNotes/AN4971-Booting-from-External-Non-Volatile-Memory-%28NVM%29-on-SAM9X7-MPUs-DS00004971.pdf))
+  * [Booting from External Non-Volatile Memory (NVM) on SAM9X7 MPUs](https://ww1.microchip.com/downloads/aemDocuments/documents/MPU32/ApplicationNotes/ApplicationNotes/AN4971-Booting-from-External-Non-Volatile-Memory-%28NVM%29-on-SAM9X7-MPUs-DS00004971.pdf)
 * Linux Software
   * [Linux Getting Started](Software/Linux/)
 * MPLAB Harmony v3 Software
