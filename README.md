@@ -23,6 +23,6 @@ The SAM9X75 is well-suited for industrial and medical applications with or w/o g
   * [MPLAB Harmony Github](https://github.com/Microchip-MPLAB-Harmony)
 * Microchip Development Tools
   * [MPLAB X IDE](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide)
-  * [Device Family Pack (DFP)](https://packs.download.microchip.com/#collapse-Microchip-SAMA7D65-DFP-pdsc)
+  * [Device Family Pack (DFP)](https://packs.download.microchip.com/#collapse-Microchip-SAM9X7-DFP-pdsc)
   * [SAM-BA in-system Programmer v3.8](https://www.microchip.com/en-us/development-tool/SAM-BA-IN-SYSTEM-PROGRAMMER)
   * [Microchip Programmers and Debuggers](https://www.microchip.com/en-us/tools-resources/debug/programmers-debuggers)
