@@ -11,6 +11,7 @@ The SAM9X75 is well-suited for industrial and medical applications with or w/o g
 * Get Started
   * [Getting Started with SAM9X7 ES on SAM9X75-DDRx-EB](Documents/Application%20Notes)
 * Hardware
+  * [Hardware User Guide](Documents/Hardware%20User%20Guide/)
   * [Design Manufacturing Files](Hardware/)
 * Documentation
   * [SAM9X7 Series Data Sheet](https://ww1.microchip.com/downloads/aemDocuments/documents/MPU32/ProductDocuments/DataSheets/SAM9X7-Series-DS60001813.pdf)
