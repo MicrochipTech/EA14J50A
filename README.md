@@ -20,7 +20,7 @@ The SAM9X75 is well-suited for industrial and medical applications with or w/o g
 * Linux Software
   * [Linux Getting Started](Software/Linux/)
 * MPLAB Harmony v3 Software
-  * [MPLAB Harony Github](https://github.com/Microchip-MPLAB-Harmony)
+  * [MPLAB Harmony Github](https://github.com/Microchip-MPLAB-Harmony)
 * Microchip Development Tools
   * [MPLAB X IDE](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide)
   * [Device Family Pack (DFP)](https://packs.download.microchip.com/#collapse-Microchip-SAMA7D65-DFP-pdsc)
