@@ -8,8 +8,6 @@ The SAM9X75 MPU is a high-performance cost-optimized ARM926EJ-S CPU-based embedd
 The SAM9X75 is well-suited for industrial and medical applications with or w/o graphical displays up to 1024 x 768,  as well as home automation and security system gateways including access control with biometrics.  
 
 # SAM9X75-DDR3-EB - Collaterals
-* Get Started
-  * [Getting Started with SAM9X7 ES on SAM9X75-DDRx-EB](Documents/Application%20Notes)
 * Hardware
   * [Hardware User Guide](Documents/Hardware%20User%20Guide/)
   * [Design Manufacturing Files](Hardware/)
