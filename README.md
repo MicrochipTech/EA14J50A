@@ -1,6 +1,7 @@
 # SAM9X75-DDR3-EB Early Access Evaluation Board (EA14J50A)
 
 The EA14J50A was intended as an Early Access development kit to provide early access for evaluation and prototyping with Microchip's SAM9X75 microprocessor (MPU).  
+
 __This board has been replaced by the SAM9X75 Curiosity LAN Kit [EV31H43A](https://www.microchip.com/en-us/development-tool/EV31H43A) which is currently available.__   
 
 The SAM9X75 MPU is a high-performance cost-optimized ARM926EJ-S CPU-based embedded MPU running up to 800MHz.  The board allows evaluation of powerful peripherals for connectivity and user interface applications, including MIPI-DSI and LVDS w/ 2D graphics, MIPI-CSI-2 camera, Gigabit Ethernet w/ TSN and CAN-FD.  The MPUs offer advanced security functions, like tamper detection, secure boot, secure key stoarge, TRNG, PUF as well as higher-performance crypto accelerators for AES and SHA.  The SAM9X75 series is supported by Microchip MPLAB-X development tools, Harmony V3, Linux distributions and the Ensemble Graphics Toolkit (EGT).  
